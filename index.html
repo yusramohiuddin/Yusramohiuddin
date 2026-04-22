@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yusra Binte Mohiuddin — Restaurant Tech Copywriter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500&family=Outfit:wght@300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#111010;
+  --paper:#F7F4EE;
+  --warm:#F0EBE0;
+  --accent:#B84A22;
+  --accent2:#1E3828;
+  --muted:#8A8278;
+  --rule:#DDD8CE;
+  --card:#FFFEFB;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Outfit',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* grain overlay */
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:999;
+  opacity:.4;
+}
+
+.wrap{max-width:820px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+nav{
+  padding:24px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:0.5px solid var(--rule);
+}
+.nav-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:0.01em;
+  color:var(--ink);
+}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.nav-link{
+  font-size:12px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .2s;
+}
+.nav-link:hover{color:var(--accent)}
+.avail-dot{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:12px;
+  color:var(--accent2);
+  letter-spacing:0.05em;
+}
+.dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--accent2);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+
+/* HERO */
+.hero{
+  padding:88px 0 72px;
+  border-bottom:0.5px solid var(--rule);
+  position:relative;
+}
+.hero-tag{
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:32px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.hero-tag::before{
+  content:'';
+  display:block;
+  width:36px;height:0.5px;
+  background:var(--accent);
+}
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,7vw,76px);
+  font-weight:400;
+  line-height:1.04;
+  letter-spacing:-0.02em;
+  margin-bottom:32px;
+  color:var(--ink);
+}
+h1 em{
+  font-style:italic;
+  color:var(--accent);
+}
+.hero-sub{
+  font-size:17px;
+  color:var(--muted);
+  max-width:560px;
+  line-height:1.7;
+  margin-bottom:48px;
+}
+.hero-sub strong{color:var(--ink);font-weight:500}
+
+.hero-stats{
+  display:flex;
+  gap:48px;
+  flex-wrap:wrap;
+}
+.stat{display:flex;flex-direction:column;gap:3px}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;
+  font-weight:600;
+  color:var(--accent);
+  line-height:1;
+}
+.stat-l{font-size:12px;color:var(--muted);letter-spacing:0.04em}
+
+/* SECTIONS */
+.section{padding:68px 0;border-bottom:0.5px solid var(--rule)}
+.sec-label{
+  font-size:10px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:36px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.sec-label::after{content:'///';color:var(--rule);font-size:10px}
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,4.5vw,46px);
+  font-weight:400;
+  line-height:1.15;
+  letter-spacing:-0.01em;
+  margin-bottom:20px;
+}
+h2 em{font-style:italic;color:var(--accent)}
+
+/* POSITIONING BOX */
+.pos-box{
+  border:0.5px solid var(--ink);
+  border-radius:3px;
+  padding:32px 36px;
+  margin:28px 0;
+  position:relative;
+  background:var(--card);
+}
+.pos-box::before{
+  content:open-quote;
+  font-family:'Cormorant Garamond',serif;
+  font-size:120px;
+  color:var(--ink);
+  opacity:.05;
+  position:absolute;
+  top:-16px;left:20px;
+  line-height:1;
+  pointer-events:none;
+}
+.pos-box p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(17px,2.4vw,22px);
+  font-style:italic;
+  line-height:1.55;
+  color:var(--ink);
+  position:relative;z-index:1;
+}
+
+/* LIVE PROOF */
+.proof-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:16px;
+  margin-top:28px;
+}
+.proof-card{
+  border:0.5px solid var(--rule);
+  border-radius:6px;
+  padding:22px 24px;
+  background:var(--card);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:border-color .2s, transform .15s;
+  text-decoration:none;
+}
+.proof-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
+.proof-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:10px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+.badge-p1{color:#155724;background:#D4EDDA;padding:3px 10px;border-radius:20px}
+.badge-live{color:#0C5460;background:#D1ECF1;padding:3px 10px;border-radius:20px}
+.proof-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.3;
+}
+.proof-kw{
+  font-size:12px;
+  color:var(--muted);
+}
+.proof-kw strong{color:var(--accent);font-weight:500}
+.proof-url{
+  font-size:11px;
+  color:var(--accent);
+  font-family:'Courier New',monospace;
+  border-top:0.5px solid var(--rule);
+  padding-top:10px;
+  margin-top:2px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.proof-url::after{content:'↗';font-size:11px}
+
+/* NICHE TAGS */
+.niche-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+.niche-tag{
+  font-size:12px;
+  color:var(--ink);
+  border:0.5px solid var(--rule);
+  border-radius:2px;
+  padding:6px 16px;
+  background:var(--card);
+  letter-spacing:0.03em;
+}
+
+/* OFFER */
+.offer-box{
+  border:1px solid var(--ink);
+  border-radius:4px;
+  overflow:hidden;
+  margin:28px 0;
+}
+.offer-head{
+  background:var(--ink);
+  color:var(--paper);
+  padding:18px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.offer-head h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-weight:600;
+}
+.offer-price{
+  font-size:12px;
+  letter-spacing:0.08em;
+  color:var(--accent);
+  background:rgba(184,74,34,.18);
+  padding:5px 14px;
+  border-radius:2px;
+}
+.offer-body{padding:24px 26px}
+.offer-body p{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.65}
+.deliverables{list-style:none;display:flex;flex-direction:column;gap:9px}
+.deliverables li{
+  display:flex;gap:10px;
+  font-size:13px;color:var(--ink);
+  align-items:flex-start;
+}
+.deliverables li::before{
+  content:'→';color:var(--accent);
+  flex-shrink:0;margin-top:1px;font-weight:500;
+}
+.offer-foot{
+  border-top:0.5px solid var(--rule);
+  padding:14px 26px;
+  display:flex;gap:24px;flex-wrap:wrap;
+}
+.offer-foot span{font-size:12px;color:var(--muted)}
+.offer-foot strong{color:var(--accent2);font-weight:500}
+
+/* PRICING TABLE */
+.price-rows{
+  border:0.5px solid var(--rule);
+  border-radius:4px;
+  overflow:hidden;
+  margin-top:24px;
+}
+.price-row{
+  display:flex;align-items:center;
+  padding:14px 22px;
+  border-bottom:0.5px solid var(--rule);
+  gap:18px;
+}
+.price-row:last-child{border-bottom:none}
+.price-phase{
+  font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);
+  min-width:130px;flex-shrink:0;
+}
+.price-desc{font-size:13px;color:var(--ink);flex:1}
+.price-amt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;
+  color:var(--accent);white-space:nowrap;
+}
+
+/* CTA */
+.cta-section{
+  padding:72px 0 88px;
+  text-align:center;
+}
+.cta-section h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,52px);
+  font-weight:400;
+  margin-bottom:14px;
+  letter-spacing:-0.02em;
+}
+.cta-section p{font-size:15px;color:var(--muted);margin-bottom:36px}
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  padding:15px 34px;
+  border-radius:2px;
+  transition:background .2s,transform .15s;
+}
+.cta-btn:hover{background:#9a3d1c;transform:translateY(-1px)}
+.cta-secondary{
+  display:block;
+  margin-top:20px;
+  font-size:13px;
+  color:var(--muted);
+}
+.cta-secondary a{
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:0.5px solid currentColor;
+}
+
+/* FOOTER */
+footer{
+  border-top:0.5px solid var(--rule);
+  padding:22px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+footer p{font-size:12px;color:var(--muted)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-tag,.hero h1,.hero-sub,.hero-stats{
+  animation:fadeUp .65s ease both;
+}
+.hero-tag{animation-delay:.05s}
+h1{animation-delay:.15s}
+.hero-sub{animation-delay:.25s}
+.hero-stats{animation-delay:.35s}
+
+@media(max-width:600px){
+  .wrap{padding:0 18px}
+  .hero-stats{gap:28px}
+  .proof-grid{grid-template-columns:1fr}
+  .offer-head{flex-direction:column;align-items:flex-start}
+  nav{flex-direction:column;align-items:flex-start;gap:14px}
+  .nav-right{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="wrap">
+<nav>
+  <div class="nav-name">Yusra Binte Mohiuddin</div>
+  <div class="nav-right">
+    <a href="#proof" class="nav-link">Work</a>
+    <a href="#offer" class="nav-link">Services</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <div class="avail-dot"><div class="dot"></div>Available</div>
+  </div>
+</nav>
+</div>
+
+<!-- HERO -->
+<div class="wrap">
+<section class="hero">
+  <div class="hero-tag">Restaurant &amp; Hospitality SaaS Copywriter</div>
+  <h1>Content that turns<br><em>operators into<br>customers.</em></h1>
+  <p class="hero-sub">
+    I write <strong>SEO-driven articles and content briefs</strong> for restaurant tech and hospitality SaaS companies — the kind that rank on Google, educate operators, and convert readers into demo requests.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-n">29+</div>
+      <div class="stat-l">Published articles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">18K</div>
+      <div class="stat-l">Monthly searches, top ranking</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">P1</div>
+      <div class="stat-l">Google rankings confirmed</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- POSITIONING -->
+<div class="wrap">
+<section class="section">
+  <div class="sec-label">What I do</div>
+  <h2>One niche.<br><em>Mastered.</em></h2>
+  <p style="color:var(--muted);font-size:15px;max-width:560px;margin-bottom:8px;">I write exclusively for companies selling software to restaurants — POS systems, online ordering, loyalty, delivery, and guest engagement platforms. Your buyers are operators with tight margins and too many tech decisions. I know their world, their objections, and how to write content that makes your product feel like the obvious solution.</p>
+
+  <div class="pos-box">
+    <p>"I write for restaurant tech companies helping operators reduce third-party commissions, increase direct orders, and build guest loyalty that doesn't depend on DoorDash."</p>
+  </div>
+
+  <div class="niche-wrap">
+    <div class="niche-tag">Online ordering platforms</div>
+    <div class="niche-tag">Loyalty &amp; rewards SaaS</div>
+    <div class="niche-tag">POS systems</div>
+    <div class="niche-tag">Guest engagement</div>
+    <div class="niche-tag">Delivery management</div>
+    <div class="niche-tag">Convenience store tech</div>
+    <div class="niche-tag">Restaurant analytics</div>
+    <div class="niche-tag">Self-ordering &amp; kiosks</div>
+  </div>
+</section>
+</div>
+
+<!-- LIVE PROOF -->
+<div class="wrap">
+<section class="section" id="proof">
+  <div class="sec-label">Live work</div>
+  <h2>Published.<br><em>Ranking.</em></h2>
+  <p style="color:var(--muted);font-size:15px;max-width:560px;margin-bottom:4px;">29+ articles published for Paytronix — a leading restaurant guest engagement platform. Four confirmed ranking on Google page 1.</p>
+
+  <div class="proof-grid">
+
+    <a class="proof-card" href="https://www.paytronix.com/blog/inventory-turnover-ratio" target="_blank">
+      <div><span class="proof-badge badge-p1">Page 1 · #1 result</span></div>
+      <div class="proof-title">Restaurant Inventory Turnover Ratio: 5 Ways to Manage It</div>
+      <div class="proof-kw">Keyword: <strong>inventory turnover ratio</strong> · 18,100 searches/mo</div>
+      <div class="proof-url">paytronix.com/blog/inventory-turnover-ratio</div>
+    </a>
+
+    <a class="proof-card" href="https://www.paytronix.com/blog/restaurant-mobile-ordering-system" target="_blank">
+      <div><span class="proof-badge badge-p1">Page 1 · position 2</span></div>
+      <div class="proof-title">18 Ways a Restaurant Mobile Ordering System Increases ROI</div>
+      <div class="proof-kw">Keyword: <strong>restaurant mobile ordering system</strong> · 70 searches/mo</div>
+      <div class="proof-url">paytronix.com/blog/restaurant-mobile-ordering-system</div>
+    </a>
+
+    <a class="proof-card" href="https://www.paytronix.com/blog/order-taking-app" target="_blank">
+      <div><span class="proof-badge badge-p1">Page 1</span></div>
+      <div class="proof-title">11 Order Taking App Upgrades for Accurate Guest Experiences</div>
+      <div class="proof-kw">Keyword: <strong>ordering app</strong> · 1,000 searches/mo</div>
+      <div class="proof-url">paytronix.com/blog/order-taking-app</div>
+    </a>
+
+    <a class="proof-card" href="https://www.paytronix.com/blog/loyalty-apps-for-restaurants" target="_blank">
+      <div><span class="proof-badge badge-live">Page 1 · indexed</span></div>
+      <div class="proof-title">Loyalty Apps for Restaurants: Building a Sticky Experience</div>
+      <div class="proof-kw">Keyword: <strong>loyalty apps for restaurants</strong> · 50 searches/mo</div>
+      <div class="proof-url">paytronix.com/blog/loyalty-apps-for-restaurants</div>
+    </a>
+
+  </div>
+</section>
+</div>
+
+<!-- OFFER -->
+<div class="wrap">
+<section class="section" id="offer">
+  <div class="sec-label">Services</div>
+  <h2>One offer.<br><em>Done right.</em></h2>
+
+  <div class="offer-box">
+    <div class="offer-head">
+      <h3>Monthly Article Retainer</h3>
+      <div class="offer-price">From $1,500 / month</div>
+    </div>
+    <div class="offer-body">
+      <p>Four SEO-optimised blog articles per month, each written with a full content brief, ICP mapping, and conversion intent built in — not just words, but content engineered to rank and drive demo requests.</p>
+      <ul class="deliverables">
+        <li>4 articles per month (1,000–1,500 words each)</li>
+        <li>Keyword research + full content brief per article</li>
+        <li>ICP-aligned messaging — pain points, objections, decision mindset</li>
+        <li>Semantic SEO structure — H2/H3, internal links, meta description</li>
+        <li>1 round of revisions included</li>
+        <li>Delivered in Google Docs, ready to publish</li>
+      </ul>
+    </div>
+    <div class="offer-foot">
+      <span>Minimum: <strong>2 months</strong></span>
+      <span>Turnaround: <strong>5–7 business days per article</strong></span>
+      <span>Test article: <strong>$300 (credited toward retainer)</strong></span>
+    </div>
+  </div>
+
+  <p style="font-size:13px;color:var(--muted);margin:20px 0 6px;letter-spacing:0.06em;text-transform:uppercase;font-size:11px;">Add-ons</p>
+
+  <div class="price-rows">
+    <div class="price-row">
+      <div class="price-phase">Content brief only</div>
+      <div class="price-desc">Keyword research, ICP, outline, semantic keywords — hand it to any writer</div>
+      <div class="price-amt">$150</div>
+    </div>
+    <div class="price-row">
+      <div class="price-phase">Landing page copy</div>
+      <div class="price-desc">Conversion-focused copy — headline, subheads, body, CTAs</div>
+      <div class="price-amt">$500</div>
+    </div>
+    <div class="price-row">
+      <div class="price-phase">Email sequence</div>
+      <div class="price-desc">5-email nurture or onboarding flow, written to move prospects toward a demo</div>
+      <div class="price-amt">$600</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+<section class="cta-section" id="contact">
+  <h2>Let's work together.</h2>
+  <p>Book a free 20-minute discovery call or send me a note directly.</p>
+  <a href="mailto:yusramohiudin1501@gmail.com" class="cta-btn">
+    Send an email ↗
+  </a>
+  <span class="cta-secondary">
+    Or reach me directly at <a href="mailto:yusramohiudin1501@gmail.com">yusramohiudin1501@gmail.com</a>
+  </span>
+</section>
+</div>
+
+<!-- FOOTER -->
+<div class="wrap">
+<footer>
+  <p>© 2026 · Yusra Binte Mohiuddin · Restaurant Tech Copywriter</p>
+  <p>yusramohiudin1501@gmail.com</p>
+</footer>
+</div>
+
+</body>
+</html>
